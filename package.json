@@ -1,6 +1,6 @@
 {
   "name": "wavesurfer-zoom-to-mouse-plugin",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Zoom to mouse plugin for WaveSurfer.js",
   "main": "dist/WaveSurferZoomToMousePlugin.js",
   "repository": "git@github.com:whthT/wavesurfer-zoom-to-mouse-plugin.git",
