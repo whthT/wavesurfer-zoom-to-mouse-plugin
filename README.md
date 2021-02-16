@@ -12,7 +12,9 @@ const wavesurfer = WaveSurfer.create({
   ...
   plugins: [
       ...
-      ZoomToMousePlugin.create(),
+      ZoomToMousePlugin.create({
+        maxPxPerSec: 5000 // default 1000
+      }),
       ...
   ],
 });
@@ -26,6 +28,7 @@ $ npm i wavesurfer-zoom-to-mouse-plugin
 ### Methods
 
 - `zoomToMouse` - `pxPerSec` 
+- `setMaxPxPerSec` - Max px per sec. Default 1000
 
 ### Todos
 

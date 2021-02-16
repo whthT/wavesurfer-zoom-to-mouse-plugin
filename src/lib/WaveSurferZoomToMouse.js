@@ -4,13 +4,20 @@ export default class ZoomToMousePlugin {
       name: "zoomToMousePlugin",
       deferInit: params && params.deferInit ? params.deferInit : false,
       params: params,
-      staticProps: {},
+      staticProps: {
+        setMaxPxPerSec(maxPxPerSec) {
+          this.zoomToMousePlugin.params.maxPxPerSec = maxPxPerSec;
+        },
+      },
       instance: ZoomToMousePlugin,
     };
   }
 
   constructor(params, ws) {
-    this.params = params;
+    this.params = Object.assign(params, {
+      maxPxPerSec: 1000,
+    });
+
     this.wavesurfer = ws;
     this.mouseDuration = null;
   }
@@ -34,17 +41,18 @@ export default class ZoomToMousePlugin {
   _onWaveFormMouseWheelEvent(e) {
     e.preventDefault();
     const zoom = this.wavesurfer.params.minPxPerSec;
+    const maxZoom = this.params.maxPxPerSec;
     var deltaY = 0;
     if (e.deltaY) {
       deltaY = e.deltaY;
     } else if (e.wheelDelta) {
       deltaY = -e.wheelDelta;
     }
-    const zoomRatio = 20;
+    const zoomRatio = maxZoom / 10;
     let zoomValue = zoom;
     if (deltaY < 0) {
       // zoom in
-      zoomValue = zoom + zoomRatio;
+      zoomValue = zoom + zoomRatio < maxZoom ? zoom + zoomRatio : maxZoom;
     } else {
       // zoom out
       zoomValue = zoom - zoomRatio > 0 ? zoom - zoomRatio : 0;
