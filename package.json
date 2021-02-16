@@ -1,6 +1,6 @@
 {
   "name": "wavesurfer-channel-selecter-plugin",
-  "version": "1.0.3",
+  "version": "1.0.0",
   "description": "Desibel meter plugin for wavesurfer.js",
   "main": "dist/WaveSurferChannelSelecterPlugin.js",
   "repository": "git@github.com:whthT/wavesurfer-channel-selecter-plugin.git",
