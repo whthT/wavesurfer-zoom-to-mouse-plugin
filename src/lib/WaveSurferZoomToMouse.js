@@ -28,7 +28,7 @@ export default class ZoomToMousePlugin {
       this.wavesurfer.backend.getPlayedPercents()
     );
     this.wavesurfer.drawer.recenter(this.mouseDuration);
-    this.fireEvent("zoom", pxPerSec);
+    this.wavesurfer.fireEvent("zoom", pxPerSec);
   }
 
   _onWaveFormMouseWheelEvent(e) {
