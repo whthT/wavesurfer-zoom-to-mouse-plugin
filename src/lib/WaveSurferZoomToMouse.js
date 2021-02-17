@@ -82,7 +82,7 @@ export default class ZoomToMousePlugin {
       this._onWaveFormMouseWheelEvent.bind(this)
     );
 
-    this.wavesurfer.container.addEventListener(
+    this.wavesurfer.container.removeEventListener(
       "mousemove",
       this._onWaveFormMouseMove.bind(this)
     );
